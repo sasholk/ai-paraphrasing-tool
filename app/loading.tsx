@@ -1,9 +1,11 @@
-"use client";
-
 import { Fragment } from "react";
 import { CircularProgress } from "@mui/material";
 
-export default function Loading() {
+interface Props {
+  size?: number;
+}
+
+export default function Loading({size = 22}: Props) {
   return (
     <Fragment>
       <svg width={0} height={0}>
@@ -14,7 +16,7 @@ export default function Loading() {
           </linearGradient>
         </defs>
       </svg>
-      <CircularProgress sx={{ "svg circle": { stroke: "url(#my_gradient)" } }} />
+      <CircularProgress size={size} sx={{ "svg circle": { stroke: "url(#my_gradient)" } }} />
     </Fragment>
   );
 }
