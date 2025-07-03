@@ -1,5 +1,5 @@
 "use client";
-import { Box } from "@mui/material";
+import { Box, FormGroup } from "@mui/material";
 import { Header } from "./ui/Header";
 import { TextArea } from "./ui/TextArea";
 import { Result } from "./ui/Result";
@@ -26,10 +26,13 @@ export default function ParaphraserRoot() {
   return (
     <Box maxWidth={900} mx="auto" px={2} py={6}>
       <Header title={title} subtitle={subtitle} />
-      {uiState !== "success" && <TextArea />}
-      {uiState === "success" && <Result />}
+      <FormGroup sx={{ paddingBottom: 2, border: "1px solid #DBDCDF", borderRadius: "28px" }}>
+        {uiState !== "success" && <TextArea />}
+        {uiState === "success" && <Result />}
+        <Toolbar />
+      </FormGroup>
+
       {uiState === "error" && <ErrorMessage />}
-      <Toolbar />
     </Box>
   );
 }

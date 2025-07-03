@@ -1,5 +1,5 @@
 "use client";
-import { Stack, Button, CircularProgress } from "@mui/material";
+import { Stack, Button } from "@mui/material";
 import { useParaphraserStore } from "@/stores/paraphraser";
 
 export const Toolbar = () => {
@@ -23,7 +23,7 @@ export const Toolbar = () => {
   };
 
   return (
-    <Stack direction="row" spacing={2} mt={2} justifyContent="center">
+    <Stack direction="row" spacing={2} mt={2} mr={2} justifyContent="end">
       {uiState === "editing" && (
         <Button variant="outlined" onClick={reset}>
           Clear
@@ -36,7 +36,7 @@ export const Toolbar = () => {
         onClick={paraphrase}
         sx={{ minWidth: 120, borderRadius: 28 }}
       >
-        {uiState === "loading" ? <CircularProgress size={22} /> : "Paraphrase"}
+        {uiState === "loading" ? "Paraphrasing" : "Paraphrase"}
       </Button>
     </Stack>
   );

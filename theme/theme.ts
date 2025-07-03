@@ -26,6 +26,55 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      defaultProps: {
+        variant: "filled",
+      },
+      styleOverrides: {
+        root: {
+          backgroundColor: "transparent",
+          borderRadius: "28px",
+          "& .MuiInputBase-root": {
+            backgroundColor: "transparent",
+            borderTopLeftRadius: "28px",
+            borderTopRightRadius: "28px",
+            "&:before": {
+              borderBottom: "none",
+            },
+            "&:after": {
+              borderBottom: "none",
+            },
+            "&:hover:not(.Mui-disabled):before": {
+              borderBottom: "none",
+            },
+            "&.Mui-focused": {
+              backgroundColor: "transparent",
+              borderTopLeftRadius: "28px",
+              borderTopRightRadius: "28px",
+            },
+          },
+          "& .MuiFilledInput-root": {
+            backgroundColor: "#EEF0F5",
+            borderTopLeftRadius: "28px",
+            borderTopRightRadius: "28px",
+            "&:before": {
+              borderBottom: "none",
+            },
+            "&:after": {
+              borderBottom: "none",
+            },
+            "&:hover:not(.Mui-disabled):before": {
+              borderBottom: "none",
+            },
+            "&.Mui-focused": {
+              backgroundColor: "#EEF0F5",
+              borderTopLeftRadius: "28px",
+              borderTopRightRadius: "28px",
+            },
+          },
+        },
+      },
+    },
   },
 });
 export default theme;
