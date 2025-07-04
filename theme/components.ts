@@ -51,8 +51,6 @@ export const components: ThemeOptions["components"] = {
         },
         "& .MuiFilledInput-root": {
           backgroundColor: neutralColors[800],
-          // borderTopLeftRadius: "28px",
-          // borderTopRightRadius: "28px",
           "&:before": {
             borderBottom: "none",
           },
@@ -69,8 +67,6 @@ export const components: ThemeOptions["components"] = {
           },
           "&.Mui-focused": {
             backgroundColor: neutralColors[800],
-            // borderTopLeftRadius: "28px",
-            // borderTopRightRadius: "28px",
           },
         },
       },

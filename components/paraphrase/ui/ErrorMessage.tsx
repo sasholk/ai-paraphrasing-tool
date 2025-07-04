@@ -1,5 +1,5 @@
 "use client";
-import { Alert } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useParaphraserStore } from "@/stores/paraphraser";
 
 export const ErrorMessage = () => {
@@ -7,8 +7,8 @@ export const ErrorMessage = () => {
   if (uiState !== "error") return null;
 
   return (
-    <Alert severity="error" sx={{ mt: 2 }}>
+    <Typography variant="body1" sx={{ mt: 1, mr: 2 }} color="error">
       {error}
-    </Alert>
+    </Typography>
   );
 };

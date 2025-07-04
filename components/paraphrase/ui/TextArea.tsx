@@ -43,6 +43,7 @@ export const TextArea = () => {
   return (
     <TextField
       variant={uiState === "initial" ? "filled" : "standard"}
+      disabled={uiState === "loading"}
       multiline
       rows={12}
       fullWidth
@@ -52,6 +53,7 @@ export const TextArea = () => {
       slotProps={{
         input: { endAdornment: adornment },
       }}
+      sx={{ "& .MuiInputBase-root": { "&:disabled": { backgroundColor: "transparent" } } }}
     />
   );
 };
