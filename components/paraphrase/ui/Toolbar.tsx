@@ -18,7 +18,7 @@ export const Toolbar = () => {
   return (
     <Stack direction="row" spacing={2} p={1} justifyContent="end">
       {uiState === "editing" && (
-        <Button variant="outlined" onClick={reset} startIcon={<ClearIconRounded />}>
+        <Button variant="contained" color="secondary" onClick={reset} startIcon={<ClearIconRounded />}>
           Clear input
         </Button>
       )}

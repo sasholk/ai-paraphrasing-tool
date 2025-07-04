@@ -20,5 +20,6 @@ declare module "@mui/material/styles" {
 export const palette: ThemeOptions["palette"] = {
   mode: "light",
   primary: { main: "#3B5AAE" },
+  secondary: { main: neutralColors[800], contrastText: "#254699" },
   neutral: neutralColors,
 };

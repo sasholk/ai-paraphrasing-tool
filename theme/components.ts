@@ -11,9 +11,23 @@ export const components: ThemeOptions["components"] = {
         paddingBlock: 14,
         paddingInline: 16,
         fontWeight: 600,
+        boxShadow: "none",
+        lineHeight: 1,
+        "&:hover": {
+          boxShadow: "none",
+        },
       },
       contained: {
         ":disabled": {
+          backgroundColor: neutralColors[400],
+          color: "#fff",
+        },
+      },
+      containedSecondary: {
+        "&:hover": {
+          backgroundColor: "#cbcbcb",
+        },
+        "&:disabled": {
           backgroundColor: neutralColors[400],
           color: "#fff",
         },
@@ -44,6 +58,16 @@ export const components: ThemeOptions["components"] = {
           },
           "&:after": {
             borderBottom: "none",
+          },
+          "&:disabled": {
+            backgroundColor: "transparent",
+            borderBottom: "none",
+            "&:before": {
+              borderBottom: "none",
+            },
+            "&:after": {
+              borderBottom: "none",
+            },
           },
           "&:hover:not(.Mui-disabled):before": {
             borderBottom: "none",

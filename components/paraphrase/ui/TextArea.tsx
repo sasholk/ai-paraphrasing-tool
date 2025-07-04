@@ -53,7 +53,6 @@ export const TextArea = () => {
       slotProps={{
         input: { endAdornment: adornment },
       }}
-      sx={{ "& .MuiInputBase-root": { "&:disabled": { backgroundColor: "transparent" } } }}
     />
   );
 };
