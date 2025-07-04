@@ -6,30 +6,36 @@ import { Result } from "./ui/Result";
 import { Toolbar } from "./ui/Toolbar";
 import { ErrorMessage } from "./ui/ErrorMessage";
 import { useParaphraserStore } from "@/stores/paraphraser";
-import { useEffect, useState } from "react";
-import { getCmsClient } from "@/lib/cms/client";
+import { useEffect } from "react";
+import { neutralColors } from "@/theme/palette";
+import { useLandingContent } from "./hooks/useLandingContent";
+import Loading from "@/app/loading";
 
 export default function ParaphraserRoot() {
-  const { uiState } = useParaphraserStore();
-  const [title, setTitle] = useState("");
-  const [subtitle, setSubtitle] = useState("");
+  const { uiState, setUiState } = useParaphraserStore();
+  const { title, subtitle, loading: isLoadingContent } = useLandingContent();
 
   useEffect(() => {
-    (async () => {
-      const cms = await getCmsClient();
-      const content = await cms.getLandingContent();
-      setTitle(content.title);
-      setSubtitle(content.subtitle);
-    })();
-  }, []);
+    setUiState("initial");
+  }, [setUiState]);
+
+  const isSuccess = uiState === "success";
+
+  if (isLoadingContent) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+        <Loading size={56} />
+      </Box>
+    );
+  }
 
   return (
-    <Box maxWidth={900} mx="auto" px={2} py={6}>
+    <Box my={4}>
       <Header title={title} subtitle={subtitle} />
-      <FormGroup sx={{ paddingBottom: 2, border: "1px solid #DBDCDF", borderRadius: "28px" }}>
-        {uiState !== "success" && <TextArea />}
-        {uiState === "success" && <Result />}
-        <Toolbar />
+
+      <FormGroup sx={{ border: `1px solid ${neutralColors[600]}`, borderRadius: "28px" }}>
+        {isSuccess ? <Result /> : <TextArea />}
+        {!isSuccess && <Toolbar />}
       </FormGroup>
 
       {uiState === "error" && <ErrorMessage />}

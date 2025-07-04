@@ -1,16 +1,17 @@
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import { neutralColors } from "@/theme/palette";
 
 interface Props {
   onClick: () => void;
   children: React.ReactNode;
 }
 
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(theme.palette.form.main),
-  backgroundColor: theme.palette.form.main,
+const ColorButton = styled(Button)(() => ({
+  color: neutralColors[300],
+  backgroundColor: "#fff",
   "&:hover": {
-    backgroundColor: theme.palette.form.main,
+    backgroundColor: "#fff",
   },
 }));
 

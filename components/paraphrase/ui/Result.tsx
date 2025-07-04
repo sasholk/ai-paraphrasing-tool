@@ -8,7 +8,7 @@ export const Result = () => {
   if (uiState !== "success") return null;
 
   return (
-    <Box mt={2} textAlign="left" border={1} p={2} borderRadius={2} bgcolor="#fafafa">
+    <Box textAlign="left" borderRadius="28px" maxHeight="403px" overflow="auto" mr={2} my={2} px={2}>
       {result.split("\n\n").map((p, i) => (
         <Typography key={i} gutterBottom whiteSpace="pre-line">
           {p}

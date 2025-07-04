@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-type UiState = 'initial' | 'editing' | 'loading' | 'success' | 'error';
+type UiState = "initial" | "editing" | "loading" | "success" | "error";
 
 interface ParaphraserState {
   uiState: UiState;
@@ -14,24 +14,24 @@ interface ParaphraserState {
   reset: () => void;
 }
 
-export const useParaphraserStore = create<ParaphraserState>((set) => ({
-  uiState: 'initial',
-  input: '',
-  result: '',
-  error: '',
-  setInput: (text) =>
+export const useParaphraserStore = create<ParaphraserState>(set => ({
+  uiState: "loading",
+  input: "",
+  result: "",
+  error: "",
+  setInput: text =>
     set(() => ({
       input: text,
-      uiState: text.trim() ? 'editing' : 'initial',
+      uiState: text.trim() ? "editing" : "initial",
     })),
-  setResult: (result) => set(() => ({ result, uiState: 'success' })),
-  setError: (error) => set(() => ({ error, uiState: 'error' })),
-  setUiState: (uiState) => set(() => ({ uiState })),
+  setResult: result => set(() => ({ result, uiState: "success" })),
+  setError: error => set(() => ({ error, uiState: "error" })),
+  setUiState: uiState => set(() => ({ uiState })),
   reset: () =>
     set(() => ({
-      input: '',
-      result: '',
-      error: '',
-      uiState: 'initial',
+      input: "",
+      result: "",
+      error: "",
+      uiState: "initial",
     })),
 }));
