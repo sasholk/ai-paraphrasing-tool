@@ -7,8 +7,8 @@ interface HeaderProps {
 }
 
 export const Header = ({ title, subtitle }: HeaderProps) => (
-  <Stack textAlign="center" mb={4}>
-    <Typography variant="h5" fontWeight={600}>
+  <Stack textAlign="center" mb={5} gap={2}>
+    <Typography variant="h1" fontWeight={700}>
       {title}
     </Typography>
     <Typography variant="subtitle1">{subtitle}</Typography>
