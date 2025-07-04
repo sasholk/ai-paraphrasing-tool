@@ -2,6 +2,54 @@
 import { ThemeOptions } from "@mui/material/styles";
 import { neutralColors } from "./palette";
 
+export const textAreaStyles = {
+  root: {
+    "& .MuiInputBase-root": {
+      paddingTop: "12px",
+      paddingInline: "16px",
+      backgroundColor: neutralColors[800],
+      borderTopLeftRadius: "28px",
+      borderTopRightRadius: "28px",
+      fontWeight: 400,
+      borderBottom: `1px solid ${neutralColors[600]}`,
+      "& input::placeholder, & textarea::placeholder": {
+        opacity: 1,
+        fontWeight: 600,
+        color: neutralColors[300],
+      },
+      "&:before": {
+        borderBottom: "none",
+      },
+      "&:after": {
+        borderBottom: "none",
+      },
+      "&:disabled": {
+        backgroundColor: "transparent",
+        borderBottom: "none",
+        "&:before": {
+          borderBottom: "none",
+        },
+        "&:after": {
+          borderBottom: "none",
+        },
+      },
+      "&:hover:not(.Mui-disabled):before": {
+        borderBottom: "none",
+      },
+    },
+  },
+  filled: {
+    "& .MuiInputBase-root": {
+      backgroundColor: "transparent",
+
+      "&:foused": {
+        backgroundColor: "transparent",
+      },
+      "&:hover": { backgroundColor: "transparent" },
+    },
+  },
+};
+
 export const components: ThemeOptions["components"] = {
   MuiButton: {
     styleOverrides: {
@@ -38,61 +86,10 @@ export const components: ThemeOptions["components"] = {
     },
   },
   MuiTextField: {
-    defaultProps: {
-      variant: "filled",
-    },
     styleOverrides: {
       root: {
-        backgroundColor: "transparent",
-        maxHeight: "311px",
-        "& .MuiInputBase-root": {
-          backgroundColor: "transparent",
-          borderTopLeftRadius: "28px",
-          borderTopRightRadius: "28px",
-          fontWeight: 400,
-          paddingTop: 12,
-          paddingInline: 16,
-          borderBottom: `1px solid ${neutralColors[600]}`,
-          "&:before": {
-            borderBottom: "none",
-          },
-          "&:after": {
-            borderBottom: "none",
-          },
-          "&:disabled": {
-            backgroundColor: "transparent",
-            borderBottom: "none",
-            "&:before": {
-              borderBottom: "none",
-            },
-            "&:after": {
-              borderBottom: "none",
-            },
-          },
-          "&:hover:not(.Mui-disabled):before": {
-            borderBottom: "none",
-          },
-        },
-        "& .MuiFilledInput-root": {
-          backgroundColor: neutralColors[800],
-          "&:before": {
-            borderBottom: "none",
-          },
-          "&:after": {
-            borderBottom: "none",
-          },
-          "& input::placeholder, & textarea::placeholder": {
-            opacity: 1,
-            fontWeight: 600,
-            color: neutralColors[300],
-          },
-          "&:hover:not(.Mui-disabled):before": {
-            borderBottom: "none",
-          },
-          "&.Mui-focused": {
-            backgroundColor: neutralColors[800],
-          },
-        },
+        ...textAreaStyles.root,
+        // ...textAreaStyles.filled,
       },
     },
   },
