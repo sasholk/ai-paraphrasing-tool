@@ -38,10 +38,9 @@ export const textAreaStyles = {
       },
     },
   },
-  filled: {
+  afterInitial: {
     "& .MuiInputBase-root": {
       backgroundColor: "transparent",
-
       "&:foused": {
         backgroundColor: "transparent",
       },
@@ -56,8 +55,8 @@ export const components: ThemeOptions["components"] = {
       root: {
         textTransform: "none",
         borderRadius: "512px",
-        paddingBlock: 14,
-        paddingInline: 16,
+        paddingBlock: "10px",
+        paddingInline: "16px",
         fontWeight: 600,
         boxShadow: "none",
         lineHeight: 1,
@@ -89,7 +88,6 @@ export const components: ThemeOptions["components"] = {
     styleOverrides: {
       root: {
         ...textAreaStyles.root,
-        // ...textAreaStyles.filled,
       },
     },
   },

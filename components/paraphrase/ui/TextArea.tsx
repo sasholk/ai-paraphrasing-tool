@@ -52,7 +52,7 @@ export const TextArea = () => {
       sx={{
         maxHeight: "311px",
         ...textAreaStyles.root,
-        ...(!isInitial && textAreaStyles.filled),
+        ...(!isInitial && textAreaStyles.afterInitial),
       }}
       onChange={e => setInput(e.target.value)}
       placeholder="Enter text here or upload file to humanize it."
