@@ -1,5 +1,7 @@
 # AI Paraphrasing Tool
 
+[DEMO](https://ai-paraphrasing-tool-three.vercel.app/)
+
 A modern web application that helps users rephrase and humanize text using AI technology. Built with Next.js, Material-UI, and OpenAI integration.
 
 ## Features
